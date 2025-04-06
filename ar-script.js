@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       panel.innerHTML = `
               <h2 style="margin-top: 0; text-align: center; color: white; text-shadow: 2px 2px 0 red;">Hongo de Vida</h2>
               <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                  <img src="/images/1up.png" 
+                  <img src="images/1up.png" 
                        style="width: 50px; height: 50px; margin-right: 10px;">
                   <div>
                       <p style="margin: 5px 0; font-weight: bold;">Super Mario Series</p>
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       panel.innerHTML = `
               <h2 style="margin-top: 0; text-align: center; color: white; text-shadow: 2px 2px 0 purple;">👻 King Boo</h2>
               <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                  <img src="/images/boo.png" 
+                  <img src="images/boo.png" 
                        style="width: 50px; height: 50px; margin-right: 10px;">
                   <div>
               <p style="text-align: center;">El fantasma tímido de Super Mario</p>
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
         panel.innerHTML = `
       <h2 style="margin-top: 0; text-align: center; color: yellow; text-shadow: 2px 2px 0 orange;">⭐ Estrella</h2>
       <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <img src="/images/star.png"
+        <img src="images/star.png"
              style="width: 50px; height: 50px; margin-right: 10px;">
         <div>
           <p style="margin: 5px 0; font-weight: bold;">Super Mario Series</p>
