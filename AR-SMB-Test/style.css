@@ -1,0 +1,274 @@
+#status-panel {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+  max-width: 300px;
+  font-family: Arial, sans-serif;
+}
+
+#status-panel h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #44444444;
+  padding-bottom: 5px;
+}
+
+#status-panel div {
+  margin: 5px 0;
+  padding: 3px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #ffffffff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#start-button {
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#error-message {
+  background: rgba(255, 50, 50, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Controles de rotación en landscape */
+@media (orientation: landscape) {
+    #rotation-controls {
+        bottom: 10px !important;
+        right: 10px !important;
+        left: auto !important;
+        transform: none !important;
+        flex-direction: column !important;
+    }
+    
+    #status-panel {
+        max-width: 200px !important;
+    }
+    
+    #mushroom-info {
+        top: 10px !important;
+        left: 10px !important;
+        right: auto !important;
+        width: 250px !important;
+    }
+}
+
+/* Ajustes generales para controles */
+#rotation-controls {
+    transition: all 0.3s ease;
+}
+
+.rotation-btn {
+    min-width: 120px;
+    text-align: center;
+}
+
+/* Fuente Mario */
+@font-face {
+    font-family: 'Super Mario';
+    src: url('https://cdn.glitch.global/8e462c4b-61f8-49a2-8cfe-d1a74be86244/SuperMario256.ttf') format('truetype');
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Controles de iluminación */
+#light-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+.light-btn {
+  padding: 8px 12px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.light-btn.active {
+  background: #2e7d32;
+}
+
+/* Evita el desplazamiento accidental en móviles */
+[a-scene] {
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#touch-confirmation {
+  font-family: "Arial", sans-serif;
+  font-size: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Controles de rotación */
+#rotation-controls {
+  display: none; /* Oculto inicialmente */
+}
+
+.rotation-btn {
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.rotation-btn:active {
+  transform: scale(0.95);
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Para móviles: hacer botones más grandes */
+@media (max-width: 768px) {
+  .rotation-btn {
+    padding: 15px 25px !important;
+    font-size: 18px !important;
+  }
+
+  #rotation-controls {
+    bottom: 40px !important;
+  }
+}
+
+/* Estilo para el panel de información del hongo */
+#mushroom-info {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Efecto hover para el botón de cerrar */
+#mushroom-info button:hover {
+  color: #ffcc00 !important;
+  transform: scale(1.2);
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  #mushroom-info {
+    width: 80% !important;
+    top: 10px !important;
+    right: 10px !important;
+    left: 10px !important;
+    margin: 0 auto;
+  }
+}
+
+/* Fuente Mario (opcional) */
+@font-face {
+  font-family: "Super Mario";
+  src: url("https://cdn.glitch.global/8e462c4b-61f8-49a2-8cfe-d1a74be86244/SuperMario256.ttf")
+    format("truetype");
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  #mushroom-info {
+    width: 80% !important;
+    top: 10px !important;
+    right: 10px !important;
+    left: 10px !important;
+    margin: 0 auto;
+  }
+
+  #rotation-controls {
+    bottom: 40px !important;
+  }
+}
+

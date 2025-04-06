@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AR WebApp</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Precargar A-Frame -->
+    <link rel="preload" href="https://aframe.io/releases/1.4.0/aframe.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.4.0/dist/aframe-master.min.js" as="script">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <p>Cargando experiencia AR...</p>
+        <button id="start-button">Comenzar</button>
+        <div id="error-message" style="color: red; margin-top: 20px; display: none;"></div>
+    </div>
+  
+    <div id="status-panel" style="position: fixed; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 5px; z-index: 1000;">
+        <h3>Estado del Sistema AR</h3>
+        <div id="aframe-status">🔄 A-Frame: Cargando...</div>
+        <div id="arjs-status">🔄 AR.js: Cargando...</div>
+        <div id="marker-status-ui">🔄 Componentes de marcador: No inicializados</div>
+        <div id="camera-status">📷 Cámara: Esperando acceso...</div>
+    </div>
+
+    <!-- CDN de respaldo implementado -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script>window.AFRAME || document.write('<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.4.0/dist/aframe-master.min.js"><\/script>')</script>
+    
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <a-scene 
+        vr-mode-ui="enabled: false" 
+        embedded 
+        arjs="sourceType: webcam; debugUIEnabled: false;"
+    >
+        <!-- Componentes de interacción -->
+        <a-entity 
+            cursor="rayOrigin: mouse" 
+            raycaster="objects: [rotate-on-click]"
+        ></a-entity>
+
+        <a-assets>
+            <!-- Precarga el modelo 3D 
+            <a-asset-item 
+                id="modelo-3d" 
+                src="/models/hongo.glb"
+            ></a-asset-item>
+              -->
+        </a-assets>
+
+        <!-- Sistema de Iluminación -->
+        <a-entity light="type: ambient; color: #888; intensity: 0.5"></a-entity>
+        <a-entity light="type: directional; color: #fff; intensity: 0.3" position="-1 1 0.5"></a-entity>
+        <a-entity light="type: point; color: #fff; intensity: 1.5" position="1 0.5 0" distance="3"></a-entity>
+        <a-entity light="type: hemisphere; color: #fff; groundColor: #777; intensity: 0.6"></a-entity>
+
+        <a-assets>
+            <!-- Modelos 3D -->
+            <a-asset-item id="modelo-3d" src="/models/hongo.glb"></a-asset-item>
+            <a-asset-item id="modelo-boo" src="/models/boo.glb"></a-asset-item>
+            <a-asset-item id="modelo-star" src="models/star.glb"></a-asset-item>
+        </a-assets>
+        
+        <!-- Marcador Hongo -->
+        <a-marker
+            type="pattern"
+            url="/patterns/pattern-ARQR_hongo_v2.patt"
+            emitevents="true"
+            id="main-marker"
+        >
+            <a-entity
+                gltf-model="#modelo-3d"
+                rotate-on-touch="sensitivity: 1.5; enableY: true"
+                cursor-listener
+                scale="0.2 0.2 0.2"
+                position="0 0 0"
+                rotation="0 0 0"
+                id="model-entity"
+                shadow="cast: true; receive: true"
+            ></a-entity>
+        </a-marker>
+        
+        <!-- Marcador Boo -->
+        <a-marker
+            type="pattern"
+            url="/patterns/pattern-ARQR_boo.patt"
+            emitevents="true"
+            id="marker-boo"
+        >
+            <a-entity
+                gltf-model="#modelo-boo"
+                scale="0.2 0.2 0.2"
+                position="0 0 0"
+                rotation="0 0 0"
+                id="entity-boo"
+                shadow="cast: true; receive: true"
+            ></a-entity>
+        </a-marker>
+      
+      <!-- Marcador Star -->
+        <a-marker
+            type="pattern"
+            url="/patterns/pattern-ARQR_star.patt"
+            emitevents="true"
+            id="marker-star"
+        >
+            <a-entity
+                gltf-model="#modelo-star"
+                scale="0.1 0.1 0.1"
+                position="0 0 0"
+                rotation="0 0 0"
+                id="entity-star"
+                shadow="cast: true; receive: true"
+            ></a-entity>
+        </a-marker>
+        
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <!-- Script con verificación de carga -->
+    <script src="ar-script.js"></script>
+</body>
+</html>
