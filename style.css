@@ -90,7 +90,7 @@
         max-width: 200px !important;
     }
     
-    #mushroom-info {
+    #morivivi-info {
         top: 10px !important;
         left: 10px !important;
         right: auto !important;
@@ -207,7 +207,7 @@
 }
 
 /* Estilo para el panel de información del hongo */
-#mushroom-info {
+#morivivi-info {
   animation: slideIn 0.5s ease-out forwards;
 }
 
@@ -223,14 +223,14 @@
 }
 
 /* Efecto hover para el botón de cerrar */
-#mushroom-info button:hover {
+#morivivi-info button:hover {
   color: #ffcc00 !important;
   transform: scale(1.2);
 }
 
 /* Responsive para móviles */
 @media (max-width: 600px) {
-  #mushroom-info {
+  #morivivi-info {
     width: 80% !important;
     top: 10px !important;
     right: 10px !important;
@@ -259,7 +259,7 @@
 
 /* Responsive para móviles */
 @media (max-width: 600px) {
-  #mushroom-info {
+  #morivivi-info {
     width: 80% !important;
     top: 10px !important;
     right: 10px !important;

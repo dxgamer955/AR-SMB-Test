@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const markerStatus = document.getElementById("marker-status-ui");
   const cameraStatus = document.getElementById("camera-status");
 
-  // 1. CREAR CONTROLES DE ROTACIÓN EN PANTALLA (COMPLETO)
+  // CREAR CONTROLES DE ROTACIÓN EN PANTALLA
   const createRotationControls = () => {
     const controls = document.createElement("div");
     controls.id = "rotation-controls";
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     controls.style.gap = "15px";
     controls.style.zIndex = "2000";
     controls.style.alignItems = "center";
+    controls.style.flexDirection = "column";
 
     // Contenedor para botones de rotación
     const rotationButtons = document.createElement("div");
@@ -72,13 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
     controls.appendChild(stopBtn);
     document.body.appendChild(controls);
 
-    return { leftBtn, rightBtn, stopBtn };
+    return { controls, leftBtn, rightBtn, stopBtn };
   };
 
-  // 2. CREAR PANEL DE INFORMACIÓN DEL HONGO (COMPLETO)
-  const createMushroomInfoPanel = () => {
+  // CREAR PANEL DE INFORMACIÓN DEL MORIVIVI
+  const createMoriPanel = () => {
     const panel = document.createElement("div");
-    panel.id = "mushroom-info";
+    panel.id = "morivivi-info";
     panel.style.position = "fixed";
     panel.style.top = "20px";
     panel.style.right = "20px";
@@ -95,24 +96,25 @@ document.addEventListener("DOMContentLoaded", () => {
     panel.style.backdropFilter = "blur(5px)";
 
     panel.innerHTML = `
-            <h2 style="margin-top: 0; text-align: center; color: white; text-shadow: 2px 2px 0 red;">Hongo de Vida</h2>
-            <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                <img src="https://cdn.glitch.global/8e462c4b-61f8-49a2-8cfe-d1a74be86244/1up.png?v=1743909962044" 
-                     style="width: 50px; height: 50px; margin-right: 10px;">
-                <div>
-                    <p style="margin: 5px 0; font-weight: bold;">Super Mario Series</p>
-                    <p style="margin: 5px 0;">⭐ ⭐ ⭐ ⭐ ⭐</p>
-                </div>
-            </div>
-            <p style="margin: 10px 0;">El Hongo de Vida (1UP Mushroom) es un power-up que:</p>
-            <ul style="margin: 10px 0; padding-left: 20px;">
-                <li>Otorga un punto de vida adicional</li>
-                <li>Aparece desde 1985 en Super Mario Bros.</li>
-            </ul>
-            <p style="text-align: center; font-style: italic; margin-bottom: 0;">
-                "¡Mario gana 1 vida  extra!"
-            </p>
-        `;
+      <h2 style="margin-top: 0; text-align: center; color: lightgreen; text-shadow: 2px 2px 0 green;">🌿 Moriviví</h2>
+      <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mimosa_pudica_Blanco2.253-cropped.jpg/800px-Mimosa_pudica_Blanco2.253-cropped.jpg"
+             alt="Moriviví" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+        <div>
+          <p style="margin: 5px 0; font-weight: bold;">Nombre científico: <em>Mimosa pudica</em></p>
+          <p style="margin: 5px 0;">🌱 Planta sensitiva</p>
+        </div>
+      </div>
+      <p style="margin: 10px 0;">El moriviví es una planta que reacciona al tacto cerrando sus hojas:</p>
+      <ul style="margin: 10px 0; padding-left: 20px;">
+        <li>Reacción de defensa natural</li>
+        <li>Popular por su curiosa respuesta al estímulo</li>
+        <li>Usada con fines educativos y medicinales</li>
+      </ul>
+      <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+        "¡Tócala y verás cómo se esconde!"
+      </p>
+    `;
 
     // Botón de cerrar
     const closeBtn = document.createElement("button");
@@ -134,9 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return panel;
   };
 
+  // CREAR PANEL DE INFORMACIÓN DEL ZUMBADORCITO
   const createBooInfoPanel = () => {
     const panel = document.createElement("div");
-    panel.id = "boo-info";
+    panel.id = "zumb-info";
     panel.style.position = "fixed";
     panel.style.top = "20px";
     panel.style.left = "20px";
@@ -153,122 +156,25 @@ document.addEventListener("DOMContentLoaded", () => {
     panel.style.backdropFilter = "blur(5px)";
 
     panel.innerHTML = `
-            <h2 style="margin-top: 0; text-align: center; color: white; text-shadow: 2px 2px 0 purple;">👻 King Boo</h2>
-            <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                <img src="https://cdn.glitch.global/8e462c4b-61f8-49a2-8cfe-d1a74be86244/boo.png?v=1743919063060" 
-                     style="width: 50px; height: 50px; margin-right: 10px;">
-                <div>
-            <p style="text-align: center;">El fantasma tímido de Super Mario</p>
-            <ul style="margin: 10px 0; padding-left: 20px;">
-                <li>Se esconde cuando lo miras 👀</li>
-                <li>Aparece desde <strong>Super Mario Bros. 3</strong></li>
-                <li>¡Peligroso pero adorable!</li>
-            </ul>
-            <p style="text-align: center; font-style: italic; margin-bottom: 0;">
-                "¡No te des la vuelta!"
-            </p>
-        `;
-
-    //
-    const createStarInfoPanel = () => {
-      const panel = document.createElement("div");
-      panel.id = "star-info";
-      panel.style.position = "fixed";
-      panel.style.top = "20px";
-      panel.style.right = "20px";
-      panel.style.width = "300px";
-      panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
-      panel.style.borderRadius = "15px";
-      panel.style.padding = "15px";
-      panel.style.color = "white";
-      panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
-      panel.style.border = "4px solid white";
-      panel.style.boxShadow = "0 0 20px rgba(255, 215, 0, 0.8)";
-      panel.style.display = "none";
-      panel.style.zIndex = "2000";
-      panel.style.backdropFilter = "blur(5px)";
-
-      panel.innerHTML = `
-    <h2 style="margin-top: 0; text-align: center; color: yellow; text-shadow: 2px 2px 0 orange;">⭐ Estrella</h2>
-    <div style="display: flex; align-items: center; margin-bottom: 10px;">
-      <img src="https://cdn.glitch.global/8e462c4b-61f8-49a2-8cfe-d1a74be86244/star.png?v=1743921574099"
-           style="width: 50px; height: 50px; margin-right: 10px;">
-      <div>
-        <p style="margin: 5px 0; font-weight: bold;">Super Mario Series</p>
-        <p style="margin: 5px 0;">💫 Invencibilidad</p>
+      <h2 style="margin-top: 0; text-align: center; color: lightblue; text-shadow: 2px 2px 0 navy;">🐦 Zumbadorcito</h2>
+      <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Chlorostilbon_maugaeus.jpg/1280px-Chlorostilbon_maugaeus.jpg" 
+             alt="Zumbadorcito" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+        <div>
+          <p style="margin: 5px 0; font-weight: bold;">Nombre científico: <em>Mellisuga helenae</em></p>
+          <p style="margin: 5px 0;">🌸 El colibrí más pequeño del mundo</p>
+        </div>
       </div>
-    </div>
-    <p style="margin: 10px 0;">La estrella otorga invulnerabilidad temporal a Mario:</p>
-    <ul style="margin: 10px 0; padding-left: 20px;">
-      <li>Permite eliminar enemigos al tocarlos</li>
-      <li>Es un ícono clásico desde 1985</li>
-    </ul>
-    <p style="text-align: center; font-style: italic; margin-bottom: 0;">
-      "¡Nada puede detenerte!"
-    </p>
-  `;
-
-      const closeBtn = document.createElement("button");
-      closeBtn.innerHTML = "×";
-      closeBtn.style.position = "absolute";
-      closeBtn.style.top = "5px";
-      closeBtn.style.right = "10px";
-      closeBtn.style.background = "none";
-      closeBtn.style.border = "none";
-      closeBtn.style.color = "white";
-      closeBtn.style.fontSize = "24px";
-      closeBtn.style.cursor = "pointer";
-      closeBtn.addEventListener("click", () => {
-        panel.style.display = "none";
-      });
-
-      panel.appendChild(closeBtn);
-      document.body.appendChild(panel);
-      return panel;
-    };
-
-    // --- INICIALIZACIÓN PARA STAR ---
-    const starMarker = document.getElementById("marker-star");
-    const starEntity = document.getElementById("entity-star");
-    const starPanel = createStarInfoPanel();
-
-    if (starMarker && starEntity) {
-      starMarker.addEventListener("markerFound", () => {
-        updateStatus(
-          markerStatus,
-          "🎯 Marcador Estrella: Detectado",
-          "success"
-        );
-        updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
-
-        if (starPanel) starPanel.style.display = "block";
-        starEntity.setAttribute("model-rotation", {
-          speed: 1,
-          autoRotate: true,
-        });
-        starEntity.setAttribute("float-animation", {
-          amplitude: 0,
-          speed: 2.5,
-        });
-
-        const controls = document.getElementById("rotation-controls");
-        if (controls) controls.style.display = "flex";
-      });
-
-      starMarker.addEventListener("markerLost", () => {
-        updateStatus(
-          markerStatus,
-          "👀 Marcador Estrella: Buscando...",
-          "warning"
-        );
-
-        if (starPanel) starPanel.style.display = "none";
-        starEntity.removeAttribute("float-animation");
-
-        const controls = document.getElementById("rotation-controls");
-        if (controls) controls.style.display = "none";
-      });
-    }
+      <p style="margin: 10px 0;">El zumbadorcito es una joya voladora endémica del Caribe:</p>
+      <ul style="margin: 10px 0; padding-left: 20px;">
+        <li>Mide solo unos 5-6 cm</li>
+        <li>Puede batir sus alas hasta 80 veces por segundo</li>
+        <li>Es vital para la polinización de muchas plantas</li>
+      </ul>
+      <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+        "¡Pequeño pero poderoso!"
+      </p>
+    `;
 
     const closeBtn = document.createElement("button");
     closeBtn.innerHTML = "×";
@@ -289,11 +195,66 @@ document.addEventListener("DOMContentLoaded", () => {
     return panel;
   };
 
-  // Inicializar controles y panel
-  const rotationControls = createRotationControls();
-  const infoPanel = createMushroomInfoPanel();
+  // CREAR PANEL DE INFORMACIÓN DEL FLAMBOYAN
+  const createStarInfoPanel = () => {
+    const panel = document.createElement("div");
+    panel.id = "flamb-info";
+    panel.style.position = "fixed";
+    panel.style.top = "20px";
+    panel.style.right = "20px";
+    panel.style.width = "300px";
+    panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+    panel.style.borderRadius = "15px";
+    panel.style.padding = "15px";
+    panel.style.color = "white";
+    panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+    panel.style.border = "4px solid white";
+    panel.style.boxShadow = "0 0 20px rgba(255, 215, 0, 0.8)";
+    panel.style.display = "none";
+    panel.style.zIndex = "2000";
+    panel.style.backdropFilter = "blur(5px)";
 
-  // 3. COMPONENTE PARA CONTROL DE ROTACIÓN (COMPLETO)
+    panel.innerHTML = `
+      <h2 style="margin-top: 0; text-align: center; color: orange; text-shadow: 2px 2px 0 darkred;">🌳 Flamboyán</h2>
+      <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Delonix_regia_01.jpg/1280px-Delonix_regia_01.jpg"
+             alt="Flamboyán" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+        <div>
+          <p style="margin: 5px 0; font-weight: bold;">Nombre científico: <em>Delonix regia</em></p>
+          <p style="margin: 5px 0;">🔥 Árbol de fuego tropical</p>
+        </div>
+      </div>
+      <p style="margin: 10px 0;">El flamboyán es famoso por su espectacular floración roja:</p>
+      <ul style="margin: 10px 0; padding-left: 20px;">
+        <li>Originario de Madagascar</li>
+        <li>Muy común en el Caribe y zonas tropicales</li>
+        <li>Símbolo de belleza, sombra y cultura popular</li>
+      </ul>
+      <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+        "Cuando florece, el verano comienza ☀️"
+      </p>
+    `;
+
+    const closeBtn = document.createElement("button");
+    closeBtn.innerHTML = "×";
+    closeBtn.style.position = "absolute";
+    closeBtn.style.top = "5px";
+    closeBtn.style.right = "10px";
+    closeBtn.style.background = "none";
+    closeBtn.style.border = "none";
+    closeBtn.style.color = "white";
+    closeBtn.style.fontSize = "24px";
+    closeBtn.style.cursor = "pointer";
+    closeBtn.addEventListener("click", () => {
+      panel.style.display = "none";
+    });
+
+    panel.appendChild(closeBtn);
+    document.body.appendChild(panel);
+    return panel;
+  };
+
+  // COMPONENTE PARA CONTROL DE ROTACIÓN
   AFRAME.registerComponent("model-rotation", {
     schema: {
       speed: { type: "number", default: 2.5 },
@@ -306,51 +267,35 @@ document.addEventListener("DOMContentLoaded", () => {
       this.model = this.el;
       this.isAutoRotating = false;
 
-      if (
-        !rotationControls.leftBtn ||
-        !rotationControls.rightBtn ||
-        !rotationControls.stopBtn
-      ) {
-        console.error("Los controles de rotación no están definidos");
+      // Obtener controles de rotación
+      const rotationControls = document.getElementById("rotation-controls");
+      if (!rotationControls) return;
+
+      const leftBtn = rotationControls.querySelector(".rotation-btn:nth-child(1)");
+      const rightBtn = rotationControls.querySelector(".rotation-btn:nth-child(2)");
+      const stopBtn = rotationControls.querySelector(".stop-rotation-btn");
+
+      if (!leftBtn || !rightBtn || !stopBtn) {
+        console.error("Botones de rotación no encontrados");
         return;
       }
 
-      // Configurar eventos de los botones
-      rotationControls.leftBtn.addEventListener("touchstart", () =>
-        this.startManualRotation("left")
-      );
-      rotationControls.leftBtn.addEventListener("touchend", () =>
-        this.stopManualRotation()
-      );
-      rotationControls.leftBtn.addEventListener("mousedown", () =>
-        this.startManualRotation("left")
-      );
-      rotationControls.leftBtn.addEventListener("mouseup", () =>
-        this.stopManualRotation()
-      );
-      rotationControls.leftBtn.addEventListener("mouseleave", () =>
-        this.stopManualRotation()
-      );
+      // Event listeners para los botones
+      leftBtn.addEventListener("click", () => {
+        this.startManualRotation("left");
+      });
 
-      rotationControls.rightBtn.addEventListener("touchstart", () =>
-        this.startManualRotation("right")
-      );
-      rotationControls.rightBtn.addEventListener("touchend", () =>
-        this.stopManualRotation()
-      );
-      rotationControls.rightBtn.addEventListener("mousedown", () =>
-        this.startManualRotation("right")
-      );
-      rotationControls.rightBtn.addEventListener("mouseup", () =>
-        this.stopManualRotation()
-      );
-      rotationControls.rightBtn.addEventListener("mouseleave", () =>
-        this.stopManualRotation()
-      );
+      rightBtn.addEventListener("click", () => {
+        this.startManualRotation("right");
+      });
 
-      rotationControls.stopBtn.addEventListener("click", () =>
-        this.toggleAutoRotation()
-      );
+      stopBtn.addEventListener("click", () => {
+        if (this.isAutoRotating) {
+          this.stopAutoRotation();
+        } else {
+          this.startAutoRotation();
+        }
+      });
 
       // Iniciar rotación automática si está habilitada
       if (this.data.autoRotate) {
@@ -370,23 +315,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const speed = this.data.speed * 0.3; // Más lento que la rotación manual
 
       this.isAutoRotating = true;
-      rotationControls.stopBtn.innerHTML = "⏹ Detener";
-      rotationControls.stopBtn.style.backgroundColor = "rgba(255,0,0,0.7)";
+      const stopBtn = document.querySelector(".stop-rotation-btn");
+      if (stopBtn) {
+        stopBtn.innerHTML = "⏹ Detener";
+        stopBtn.style.backgroundColor = "rgba(255,0,0,0.7)";
+      }
 
       this.autoRotationInterval = setInterval(() => {
-  if (this.model.id === "entity-star") {
-    currentRotation.z += speed;
-    this.model.setAttribute("rotation", currentRotation);
-  }
-}, 16);
-
-this.autoRotationInterval = setInterval(() => {
-  if (this.model.id === "entity-boo") {
-    currentRotation.y += speed;
-    this.model.setAttribute("rotation", currentRotation);
-  }
-}, 16);
-
+        currentRotation.y += speed;
+        this.model.setAttribute("rotation", currentRotation);
+      }, 16);
     },
 
     stopAutoRotation: function () {
@@ -395,15 +333,10 @@ this.autoRotationInterval = setInterval(() => {
         this.autoRotationInterval = null;
       }
       this.isAutoRotating = false;
-      rotationControls.stopBtn.innerHTML = "▶ Rotar";
-      rotationControls.stopBtn.style.backgroundColor = "rgba(0,255,0,0.7)";
-    },
-
-    toggleAutoRotation: function () {
-      if (this.isAutoRotating) {
-        this.stopAutoRotation();
-      } else {
-        this.startAutoRotation();
+      const stopBtn = document.querySelector(".stop-rotation-btn");
+      if (stopBtn) {
+        stopBtn.innerHTML = "▶ Rotar";
+        stopBtn.style.backgroundColor = "rgba(0,255,0,0.7)";
       }
     },
 
@@ -419,19 +352,9 @@ this.autoRotationInterval = setInterval(() => {
       };
 
       this.rotationInterval = setInterval(() => {
-  if (this.model.id === "entity-star") {
-    currentRotation.z += speed;
-    this.model.setAttribute("rotation", currentRotation);
-  }
-}, 16);
-
-this.rotationInterval = setInterval(() => {
-  if (this.model.id === "entity-boo") {
-    currentRotation.y += speed;
-    this.model.setAttribute("rotation", currentRotation);
-  }
-}, 16);
-
+        currentRotation.y += speed;
+        this.model.setAttribute("rotation", currentRotation);
+      }, 16);
     },
 
     stopManualRotation: function () {
@@ -464,7 +387,104 @@ this.rotationInterval = setInterval(() => {
     },
   });
 
-  // 4. VERIFICACIÓN DE LIBRERÍAS (COMPLETO)
+  // --- INICIALIZACIÓN PARA MORIVIVI ---
+  const moriMarker = document.getElementById("main-marker");
+  const moriEntity = document.getElementById("model-entity");
+  const moriPanel = createMoriPanel();
+  const rotationControls = createRotationControls();
+
+  if (moriMarker && moriEntity) {
+    moriMarker.addEventListener("markerFound", () => {
+      updateStatus(markerStatus, "🎯 Marcador Moriviví: Detectado", "success");
+      updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+      if (moriPanel) moriPanel.style.display = "block";
+      moriEntity.setAttribute("model-rotation", {
+        speed: 2.5,
+        autoRotate: true,
+      });
+      moriEntity.setAttribute("float-animation", {
+        amplitude: 0.05,
+        speed: 1.5,
+      });
+
+      if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+    });
+
+    moriMarker.addEventListener("markerLost", () => {
+      updateStatus(markerStatus, "👀 Marcador Moriviví: Buscando...", "warning");
+
+      if (moriPanel) moriPanel.style.display = "none";
+      moriEntity.removeAttribute("float-animation");
+      if (rotationControls.controls) rotationControls.controls.style.display = "none";
+    });
+  }
+
+  // --- INICIALIZACIÓN PARA ZUMBADORCITO ---
+  const zumbMarker = document.getElementById("marker-boo");
+  const zumbEntity = document.getElementById("entity-zumb");
+  const zumbPanel = createBooInfoPanel();
+
+  if (zumbMarker && zumbEntity) {
+    zumbMarker.addEventListener("markerFound", () => {
+      updateStatus(markerStatus, "🎯 Marcador Zumbadorcito: Detectado", "success");
+      updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+      if (zumbPanel) zumbPanel.style.display = "block";
+      zumbEntity.setAttribute("model-rotation", {
+        speed: 2.5,
+        autoRotate: true,
+      });
+      zumbEntity.setAttribute("float-animation", {
+        amplitude: 0.07,
+        speed: 1.8,
+      });
+
+      if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+    });
+
+    zumbMarker.addEventListener("markerLost", () => {
+      updateStatus(markerStatus, "👀 Marcador Zumbadorcito: Buscando...", "warning");
+
+      if (zumbPanel) zumbPanel.style.display = "none";
+      zumbEntity.removeAttribute("float-animation");
+      if (rotationControls.controls) rotationControls.controls.style.display = "none";
+    });
+  }
+
+  // --- INICIALIZACIÓN PARA FLAMBOYÁN ---
+  const starMarker = document.getElementById("marker-flamb");
+  const starEntity = document.getElementById("entity-flamb");
+  const starPanel = createStarInfoPanel();
+
+  if (starMarker && starEntity) {
+    starMarker.addEventListener("markerFound", () => {
+      updateStatus(markerStatus, "🎯 Marcador Flamboyán: Detectado", "success");
+      updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+      if (starPanel) starPanel.style.display = "block";
+      starEntity.setAttribute("model-rotation", {
+        speed: 1,
+        autoRotate: true,
+      });
+      starEntity.setAttribute("float-animation", {
+        amplitude: 0,
+        speed: 2.5,
+      });
+
+      if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+    });
+
+    starMarker.addEventListener("markerLost", () => {
+      updateStatus(markerStatus, "👀 Marcador Flamboyán: Buscando...", "warning");
+
+      if (starPanel) starPanel.style.display = "none";
+      starEntity.removeAttribute("float-animation");
+      if (rotationControls.controls) rotationControls.controls.style.display = "none";
+    });
+  }
+
+  // VERIFICACIÓN DE LIBRERÍAS
   const checkLibraries = () => {
     if (typeof AFRAME === "undefined") {
       showError(
@@ -489,7 +509,7 @@ this.rotationInterval = setInterval(() => {
     }, 100);
   };
 
-  // 5. HABILITAR FUNCIONALIDAD AR (COMPLETO)
+  // HABILITAR FUNCIONALIDAD AR
   const enableARFunctionality = () => {
     updateStatus(markerStatus, "🔍 Marcador: Listo para detectar", "info");
 
@@ -500,86 +520,10 @@ this.rotationInterval = setInterval(() => {
 
     startButton.addEventListener("click", () => {
       loadingScreen.style.display = "none";
-      initializeMarkerTracking();
     });
   };
 
-  // 6. INICIALIZAR SEGUIMIENTO DE MARCADOR (COMPLETO)
-  const initializeMarkerTracking = () => {
-    const marker = document.getElementById("main-marker");
-    const model = document.getElementById("model-entity");
-
-    if (!marker || !model) {
-      showError("Elementos AR no encontrados", markerStatus);
-      return;
-    }
-
-    updateStatus(markerStatus, "👀 Marcador: Monitoreando...", "info");
-    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
-
-    marker.addEventListener("markerFound", () => {
-      updateStatus(markerStatus, "🎯 Marcador: Detectado", "success");
-
-      // Mostrar panel de información
-      if (infoPanel) infoPanel.style.display = "block";
-
-      // Activar controles de rotación con rotación automática
-      model.setAttribute("model-rotation", {
-        speed: 2.5,
-        autoRotate: true,
-      });
-
-      if (document.getElementById("rotation-controls")) {
-        document.getElementById("rotation-controls").style.display = "flex";
-      }
-    });
-
-    marker.addEventListener("markerLost", () => {
-      updateStatus(markerStatus, "👀 Marcador: Buscando...", "warning");
-
-      // Ocultar panel y controles
-      if (infoPanel) infoPanel.style.display = "none";
-      if (document.getElementById("rotation-controls")) {
-        document.getElementById("rotation-controls").style.display = "none";
-      }
-    });
-  };
-
-  // --- INICIALIZACIÓN PARA BOO ---
-  const booMarker = document.getElementById("marker-boo");
-  const booEntity = document.getElementById("entity-boo");
-  const booPanel = createBooInfoPanel();
-
-  if (booMarker && booEntity) {
-    booMarker.addEventListener("markerFound", () => {
-      updateStatus(markerStatus, "🎯 Marcador Boo: Detectado", "success");
-      updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
-
-      if (booPanel) booPanel.style.display = "block";
-      booEntity.setAttribute("model-rotation", {
-        speed: 2.5,
-        autoRotate: true,
-      });
-      booEntity.setAttribute("float-animation", {
-        amplitude: 0.07,
-        speed: 1.8,
-      });
-
-      const controls = document.getElementById("rotation-controls");
-      if (controls) controls.style.display = "flex";
-    });
-
-    booMarker.addEventListener("markerLost", () => {
-      updateStatus(markerStatus, "👀 Marcador Boo: Buscando...", "warning");
-
-      if (booPanel) booPanel.style.display = "none";
-      booEntity.removeAttribute("float-animation");
-      const controls = document.getElementById("rotation-controls");
-      if (controls) controls.style.display = "none";
-    });
-  }
-
-  // FUNCIONES UTILITARIAS (COMPLETO)
+  // FUNCIONES UTILITARIAS
   function updateStatus(element, message, type) {
     if (!element) {
       console.error("Elemento de estado no encontrado");
