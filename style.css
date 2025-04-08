@@ -184,11 +184,16 @@
 /* Responsive para móviles */
 @media (max-width: 1080px) {
   #morivivi-info {
-    width: 40% !important;
+    width: 80% !important;
     top: 10px !important;
     right: 10px !important;
     left: 10px !important;
     margin: 0 auto;
+    font-size: 12px !important;
+  }
+
+  #morivivi-info, #zumb-info, #flamb-info, p, h3 {
+    font-size: 13px !important;
   }
 
   #rotation-controls {

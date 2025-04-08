@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     panel.innerHTML = `
       <h2 style="margin-top: 0; text-align: center; color: lightblue; text-shadow: 2px 2px 0 navy;">🐦 Zumbadorcito</h2>
       <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Chlorostilbon_maugaeus.jpg/1280px-Chlorostilbon_maugaeus.jpg" 
+        <img src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/106844321/320" 
              alt="Zumbadorcito" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
         <div>
           <p style="margin: 5px 0; font-weight: bold;">Nombre científico: <em>Mellisuga helenae</em></p>
