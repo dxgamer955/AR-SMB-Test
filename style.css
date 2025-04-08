@@ -182,7 +182,7 @@
 }
 
 /* Responsive para móviles */
-@media (max-width: 500px) {
+@media (max-width: 1080px) {
   #morivivi-info {
     width: 40% !important;
     top: 10px !important;
