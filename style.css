@@ -189,11 +189,11 @@
     right: 10px !important;
     left: 10px !important;
     margin: 0 auto;
-    font-size: 12px !important;
+    font-size: 10px !important;
   }
 
   #morivivi-info, #zumb-info, #flamb-info, p, h3 {
-    font-size: 13px !important;
+    font-size: 10px !important;
   }
 
   #rotation-controls {
