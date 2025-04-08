@@ -50,12 +50,8 @@
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 #start-button {
@@ -78,51 +74,59 @@
 
 /* Controles de rotación en landscape */
 @media (orientation: landscape) {
-    #rotation-controls {
-        bottom: 10px !important;
-        right: 10px !important;
-        left: auto !important;
-        transform: none !important;
-        flex-direction: column !important;
-    }
-    
-    #status-panel {
-        max-width: 200px !important;
-    }
-    
-    #morivivi-info {
-        top: 10px !important;
-        left: 10px !important;
-        right: auto !important;
-        width: 250px !important;
-    }
+  #rotation-controls {
+    bottom: 10px !important;
+    right: 10px !important;
+    left: auto !important;
+    transform: none !important;
+    flex-direction: column !important;
+  }
+
+  #status-panel {
+    max-width: 200px !important;
+  }
+
+  #morivivi-info {
+    top: 10px !important;
+    left: 10px !important;
+    right: auto !important;
+    width: 250px !important;
+  }
 }
 
 /* Ajustes generales para controles */
 #rotation-controls {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .rotation-btn {
-    min-width: 120px;
-    text-align: center;
+  min-width: 120px;
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.rotation-btn:active {
+  transform: scale(0.95);
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 /* Fuente Mario */
 @font-face {
-    font-family: 'Super Mario';
-    src: url('https://cdn.glitch.global/8e462c4b-61f8-49a2-8cfe-d1a74be86244/SuperMario256.ttf') format('truetype');
+  font-family: 'Super Mario';
+  src: url('https://cdn.glitch.global/8e462c4b-61f8-49a2-8cfe-d1a74be86244/SuperMario256.ttf') format('truetype');
 }
 
 /* Animaciones */
 @keyframes slideIn {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%, -60%); }
-    to { opacity: 1; transform: translate(-50%, -50%); }
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 /* Controles de iluminación */
@@ -167,62 +171,11 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-/* Controles de rotación */
-#rotation-controls {
-  display: none; /* Oculto inicialmente */
-}
-
-.rotation-btn {
-  transition: all 0.2s;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.rotation-btn:active {
-  transform: scale(0.95);
-  background-color: rgba(0, 0, 0, 0.9) !important;
-}
-
-/* Para móviles: hacer botones más grandes */
-@media (max-width: 768px) {
-  .rotation-btn {
-    padding: 15px 25px !important;
-    font-size: 18px !important;
-  }
-
-  #rotation-controls {
-    bottom: 40px !important;
-  }
-}
-
 /* Estilo para el panel de información del hongo */
 #morivivi-info {
   animation: slideIn 0.5s ease-out forwards;
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Efecto hover para el botón de cerrar */
 #morivivi-info button:hover {
   color: #ffcc00 !important;
   transform: scale(1.2);
@@ -237,38 +190,23 @@
     left: 10px !important;
     margin: 0 auto;
   }
-}
-
-/* Fuente Mario (opcional) */
-@font-face {
-  font-family: "Super Mario";
-  src: url("https://cdn.glitch.global/8e462c4b-61f8-49a2-8cfe-d1a74be86244/SuperMario256.ttf")
-    format("truetype");
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Responsive para móviles */
-@media (max-width: 600px) {
-  #morivivi-info {
-    width: 80% !important;
-    top: 10px !important;
-    right: 10px !important;
-    left: 10px !important;
-    margin: 0 auto;
-  }
 
   #rotation-controls {
     bottom: 40px !important;
   }
-}
 
+  #status-panel {
+    max-width: 200px !important;
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  #status-panel div {
+    font-size: 12px;
+  }
+
+  .rotation-btn {
+    padding: 15px 25px !important;
+    font-size: 18px !important;
+  }
+}
