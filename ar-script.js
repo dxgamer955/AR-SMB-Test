@@ -254,6 +254,66 @@ document.addEventListener("DOMContentLoaded", () => {
     return panel;
   };
 
+  // CREAR PANEL DE INFORMACIÓN DEL C3TK
+  const createC3TKInfoPanel = () => {
+    const panel = document.createElement("div");
+    panel.id = "c3tk-info";
+    panel.style.position = "fixed";
+    panel.style.top = "20px";
+    panel.style.left = "20px";
+    panel.style.width = "300px";
+    panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+    panel.style.borderRadius = "15px";
+    panel.style.padding = "15px";
+    panel.style.color = "white";
+    panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+    panel.style.border = "4px solid white";
+    panel.style.boxShadow = "0 0 20px rgba(255, 50, 255, 0.5)";
+    panel.style.display = "none";
+    panel.style.zIndex = "2000";
+    panel.style.backdropFilter = "blur(5px)";
+
+    panel.innerHTML = `
+      <h2 style="margin-top: 0; text-align: center; color: lightblue; text-shadow: 2px 2px 0 navy;">🔬 C3tec de Caguas</h2>
+<div style="display: flex; align-items: center; margin-bottom: 10px;">
+  <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/a5/09/33/criollo-centre-for-science.jpg?w=1200&h=1200&s=1" 
+       alt="C3tec de Caguas" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+  <div>
+    <p style="margin: 5px 0; font-weight: bold;">Nombre completo: <em>Centro Criollo de Ciencia y Tecnología del Caribe</em></p>
+    <p style="margin: 5px 0;">🌟 Donde la ciencia cobra vida</p>
+  </div>
+</div>
+<p style="margin: 10px 0;">El C3tec es un espacio interactivo para aprender sobre ciencia y tecnología de manera divertida:</p>
+<ul style="margin: 10px 0; padding-left: 20px;">
+  <li>Cuenta con exhibiciones permanentes y temporales</li>
+  <li>Incluye un laboratorio "Makerspace" para crear e innovar</li>
+  <li>Ideal para estudiantes, familias y curiosos de todas las edades</li>
+</ul>
+<p style="text-align: center; font-style: italic; margin-bottom: 0;">
+  "¡Explora, imagina y crea!"
+</p>
+
+    `;
+
+    const closeBtn = document.createElement("button");
+    closeBtn.innerHTML = "×";
+    closeBtn.style.position = "absolute";
+    closeBtn.style.top = "5px";
+    closeBtn.style.right = "10px";
+    closeBtn.style.background = "none";
+    closeBtn.style.border = "none";
+    closeBtn.style.color = "white";
+    closeBtn.style.fontSize = "24px";
+    closeBtn.style.cursor = "pointer";
+    closeBtn.addEventListener("click", () => {
+      panel.style.display = "none";
+    });
+
+    panel.appendChild(closeBtn);
+    document.body.appendChild(panel);
+    return panel;
+  };
+
   // COMPONENTE PARA CONTROL DE ROTACIÓN
   AFRAME.registerComponent("model-rotation", {
     schema: {
@@ -451,6 +511,41 @@ document.addEventListener("DOMContentLoaded", () => {
       if (rotationControls.controls) rotationControls.controls.style.display = "none";
     });
   }
+
+// INICIALIZACIÓN PARA C3TK (ACTUALIZADO CON CONTROLES Y ROTACIÓN)
+const c3tkMarker = document.getElementById("marker-c3tk");
+const c3tkEntity = document.getElementById("entity-c3tk");
+const c3tkPanel = createC3TKInfoPanel();
+
+if (c3tkMarker && c3tkEntity) {
+  c3tkMarker.addEventListener("markerFound", () => {
+    updateStatus(markerStatus, "🎯 Marcador C3TK: Detectado", "success");
+    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+    if (c3tkPanel) c3tkPanel.style.display = "block";
+    c3tkEntity.setAttribute("model-rotation", {
+      speed: 2.5,
+      autoRotate: true,
+    });
+    c3tkEntity.setAttribute("float-animation", {
+      amplitude: 0.07,
+      speed: 1.8,
+    });
+
+    if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+  });
+
+  c3tkMarker.addEventListener("markerLost", () => {
+    updateStatus(markerStatus, "👀 Marcador C3TK: Buscando...", "warning");
+
+    if (c3tkPanel) c3tkPanel.style.display = "none";
+    c3tkEntity.removeAttribute("float-animation");
+    if (rotationControls.controls) rotationControls.controls.style.display = "none";
+  });
+}
+
+// El resto del código permanece sin cambios.
+
 
   // --- INICIALIZACIÓN PARA FLAMBOYÁN ---
   const starMarker = document.getElementById("marker-flamb");

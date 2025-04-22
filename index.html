@@ -63,9 +63,10 @@
             <a-asset-item id="modelo-3d" src="models/MORIVIVI.glb"></a-asset-item>
             <a-asset-item id="modelo-boo" src="models/zumbadorcito_noshader.glb"></a-asset-item>
             <a-asset-item id="modelo-star" src="models/flamboyan.glb"></a-asset-item>
+            <a-asset-item id="modelo-c3tk" src="models/C3TEC.glb"></a-asset-item>
         </a-assets>
         
-        <!-- Marcador Hongo -->
+        <!-- Marcador Mori -->
         <a-marker
             type="pattern"
             url="patterns/pattern-QRAR_MORI.patt"
@@ -84,7 +85,7 @@
             ></a-entity>
         </a-marker>
         <!---->
-        <!-- Marcador Boo -->
+        <!-- Marcador ZUMB -->
         <a-marker
             type="pattern"
             url="patterns/pattern-QRAR_ZUMB.patt"
@@ -101,7 +102,7 @@
             ></a-entity>
         </a-marker>
       
-      <!-- Marcador Star -->
+      <!-- Marcador Flamb -->
         <a-marker
             type="pattern"
             url="patterns/pattern-QRAR_FLAMB.patt"
@@ -114,6 +115,23 @@
                 position="0 0 0"
                 rotation="0 0 0"
                 id="entity-flamb"
+                shadow="cast: true; receive: true"
+            ></a-entity>
+        </a-marker>
+
+        <!-- Marcador C3tek -->
+        <a-marker
+            type="pattern"
+            url="patterns/pattern-qr_c3tk.patt"
+            emitevents="true"
+            id="marker-c3tk"
+        >
+            <a-entity
+                gltf-model="#modelo-c3tk"
+                scale="0.1 0.1 0.1"
+                position="0 0 0"
+                rotation="0 0 0"
+                id="entity-c3tk"
                 shadow="cast: true; receive: true"
             ></a-entity>
         </a-marker>
