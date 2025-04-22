@@ -314,6 +314,68 @@ document.addEventListener("DOMContentLoaded", () => {
     return panel;
   };
 
+
+ // CREAR PANEL DE INFORMACIÓN DE LA ALCALDIA
+ const createALCALInfoPanel = () => {
+  const panel = document.createElement("div");
+  panel.id = "alcal-info";
+  panel.style.position = "fixed";
+  panel.style.top = "20px";
+  panel.style.left = "20px";
+  panel.style.width = "300px";
+  panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+  panel.style.borderRadius = "15px";
+  panel.style.padding = "15px";
+  panel.style.color = "white";
+  panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+  panel.style.border = "4px solid white";
+  panel.style.boxShadow = "0 0 20px rgba(255, 50, 255, 0.5)";
+  panel.style.display = "none";
+  panel.style.zIndex = "2000";
+  panel.style.backdropFilter = "blur(5px)";
+
+  panel.innerHTML = `
+  <h2 style="margin-top: 0; text-align: center; color: lightblue; text-shadow: 2px 2px 0 navy;">🏛️ Casa Alcaldía de Caguas</h2>
+  <div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <img src="https://live.staticflickr.com/5530/11803444365_f7021f3ff2_b.jpg"
+         alt="Casa Alcaldía de Caguas" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+    <div>
+      <p style="margin: 5px 0; font-weight: bold;">Nombre oficial: <em>Casa Alcaldía William Miranda Marín</em></p>
+      <p style="margin: 5px 0;">🏙 Símbolo de gobierno y cultura en el corazón de Caguas</p>
+    </div>
+  </div>
+  <p style="margin: 10px 0;">La Casa Alcaldía es sede del gobierno municipal de Caguas:</p>
+  <ul style="margin: 10px 0; padding-left: 20px;">
+    <li>Ubicada en la plaza central de la ciudad</li>
+    <li>Lugar emblemático de eventos cívicos y culturales</li>
+    <li>Nombrada en honor al exalcalde William Miranda Marín</li>
+  </ul>
+  <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+    "¡Centro de liderazgo, historia y comunidad!"
+  </p>
+`;
+
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "×";
+  closeBtn.style.position = "absolute";
+  closeBtn.style.top = "5px";
+  closeBtn.style.right = "10px";
+  closeBtn.style.background = "none";
+  closeBtn.style.border = "none";
+  closeBtn.style.color = "white";
+  closeBtn.style.fontSize = "24px";
+  closeBtn.style.cursor = "pointer";
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  panel.appendChild(closeBtn);
+  document.body.appendChild(panel);
+  return panel;
+};
+
+
   // COMPONENTE PARA CONTROL DE ROTACIÓN
   AFRAME.registerComponent("model-rotation", {
     schema: {
@@ -544,7 +606,37 @@ if (c3tkMarker && c3tkEntity) {
   });
 }
 
-// El resto del código permanece sin cambios.
+// INICIALIZACIÓN PARA CASA ALCALDÍA DE CAGUAS - WILLIAM MIRANDA MARÍN
+const alcalMarker = document.getElementById("marker-alcal");
+const alcalEntity = document.getElementById("entity-alcal");
+const alcalPanel = createALCALInfoPanel();
+
+if (alcalMarker && alcalEntity) {
+  alcalMarker.addEventListener("markerFound", () => {
+    updateStatus(markerStatus, "🎯 Marcador Alcaldía: Detectado", "success");
+    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+    if (alcalPanel) alcalPanel.style.display = "block";
+    alcalEntity.setAttribute("model-rotation", {
+      speed: 2.5,
+      autoRotate: true,
+    });
+    alcalEntity.setAttribute("float-animation", {
+      amplitude: 0.07,
+      speed: 1.8,
+    });
+
+    if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+  });
+
+  alcalMarker.addEventListener("markerLost", () => {
+    updateStatus(markerStatus, "👀 Marcador Alcaldía: Buscando...", "warning");
+
+    if (alcalPanel) alcalPanel.style.display = "none";
+    alcalEntity.removeAttribute("float-animation");
+    if (rotationControls.controls) rotationControls.controls.style.display = "none";
+  });
+}
 
 
   // --- INICIALIZACIÓN PARA FLAMBOYÁN ---

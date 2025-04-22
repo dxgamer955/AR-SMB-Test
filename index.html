@@ -64,6 +64,7 @@
             <a-asset-item id="modelo-boo" src="models/zumbadorcito_noshader.glb"></a-asset-item>
             <a-asset-item id="modelo-star" src="models/flamboyan.glb"></a-asset-item>
             <a-asset-item id="modelo-c3tk" src="models/C3TK.glb"></a-asset-item>
+            <a-asset-item id="modelo-alcal" src="models/ALCALDIA.glb"></a-asset-item>
         </a-assets>
         
         <!-- Marcador Mori -->
@@ -132,6 +133,23 @@
                 position="0 0 0"
                 rotation="0 0 0"
                 id="entity-c3tk"
+                shadow="cast: true; receive: true"
+            ></a-entity>
+        </a-marker>
+
+        <!-- Marcador Alcaldia -->
+        <a-marker
+            type="pattern"
+            url="patterns/pattern-qr_alcal.patt"
+            emitevents="true"
+            id="marker-alcal"
+        >
+            <a-entity
+                gltf-model="#modelo-alcal"
+                scale="0.1 0.1 0.1"
+                position="0 0 0"
+                rotation="0 0 0"
+                id="entity-alcal"
                 shadow="cast: true; receive: true"
             ></a-entity>
         </a-marker>
