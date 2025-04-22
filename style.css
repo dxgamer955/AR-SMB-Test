@@ -215,3 +215,13 @@
     font-size: 18px !important;
   }
 }
+
+
+body, p, h1, h2, h3, h4, h5, h6,
+ul, ol, li, div, span, button,
+#status-panel, #status-panel div,
+#morivivi-info, #zumb-info, #flamb-info,
+#centr-info, #c3tk-info, #alcal-info, #jung-info, #taina-info,
+#rotation-controls, .rotation-btn, .stop-rotation-btn {
+  font-size: 10px !important;
+}

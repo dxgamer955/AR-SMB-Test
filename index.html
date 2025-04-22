@@ -65,6 +65,9 @@
             <a-asset-item id="modelo-star" src="models/flamboyan.glb"></a-asset-item>
             <a-asset-item id="modelo-c3tk" src="models/C3TK.glb"></a-asset-item>
             <a-asset-item id="modelo-alcal" src="models/ALCALDIA.glb"></a-asset-item>
+            <a-asset-item id="modelo-centr" src="models/CENTRO.glb"></a-asset-item>
+            <a-asset-item id="modelo-india" src="models/INDIA.glb"></a-asset-item>
+            <a-asset-item id="modelo-jung" src="models/jungle_gurdian.glb"></a-asset-item>
         </a-assets>
         
         <!-- Marcador Mori -->
@@ -153,7 +156,59 @@
                 shadow="cast: true; receive: true"
             ></a-entity>
         </a-marker>
+
         
+        <!-- Marcador CENTRO -->
+        <a-marker
+            type="pattern"
+            url="patterns/pattern-qr_centr.patt"
+            emitevents="true"
+            id="marker-centr"
+        >
+            <a-entity
+                gltf-model="#modelo-centr"
+                scale="0.1 0.1 0.1"
+                position="0 0 0"
+                rotation="0 0 0"
+                id="entity-centr"
+                shadow="cast: true; receive: true"
+            ></a-entity>
+        </a-marker>
+
+
+        <!-- Marcador INDIA -->
+        <a-marker
+            type="pattern"
+            url="patterns/pattern-qr_india.patt"
+            emitevents="true"
+            id="marker-india"
+        >
+            <a-entity
+                gltf-model="#modelo-india"
+                scale="0.1 0.1 0.1"
+                position="0 0 0"
+                rotation="0 0 0"
+                id="entity-india"
+                shadow="cast: true; receive: true"
+            ></a-entity>
+        </a-marker>
+        
+         <!-- Marcador Jungle Guardian -->
+         <a-marker
+         type="pattern"
+         url="patterns/pattern-qr_jung.patt"
+         emitevents="true"
+         id="marker-jung"
+     >
+         <a-entity
+             gltf-model="#modelo-jung"
+             scale="0.1 0.1 0.1"
+             position="0 0 0"
+             rotation="0 0 0"
+             id="entity-jung"
+             shadow="cast: true; receive: true"
+         ></a-entity>
+     </a-marker>
 
         <a-entity camera></a-entity>
     </a-scene>

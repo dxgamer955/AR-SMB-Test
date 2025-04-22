@@ -376,6 +376,189 @@ document.addEventListener("DOMContentLoaded", () => {
 };
 
 
+// CREAR PANEL DE INFORMACIÓN DEL CENTRO DE BELLAS ARTES DE CAGUAS
+const createCENTRInfoPanel = () => {
+  const panel = document.createElement("div");
+  panel.id = "centr-info";
+  panel.style.position = "fixed";
+  panel.style.top = "20px";
+  panel.style.left = "20px";
+  panel.style.width = "300px";
+  panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+  panel.style.borderRadius = "15px";
+  panel.style.padding = "15px";
+  panel.style.color = "white";
+  panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+  panel.style.border = "4px solid white";
+  panel.style.boxShadow = "0 0 20px rgba(200, 100, 255, 0.5)";
+  panel.style.display = "none";
+  panel.style.zIndex = "2000";
+  panel.style.backdropFilter = "blur(5px)";
+
+  panel.innerHTML = `
+    <h2 style="margin-top: 0; text-align: center; color: orchid; text-shadow: 2px 2px 0 purple;">🎭 Bellas Artes de Caguas</h2>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+      <img src="https://www.discoverpuertorico.com/sites/default/files/listing_images/profile/9943/7Y6A3068-2-_DBD6AE4F-98AA-29B3-48E0414E4AC5BB62-dbd69fca9308655_dbd6b75e-fb24-bf0a-05cae8bddb33f8e3.jpg"
+           alt="Centro de Bellas Artes de Caguas" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+      <div>
+        <p style="margin: 5px 0; font-weight: bold;">Nombre completo: <em>Centro de Bellas Artes de Caguas</em></p>
+        <p style="margin: 5px 0;">🎨 Espacio para el arte, la música y el teatro</p>
+      </div>
+    </div>
+    <p style="margin: 10px 0;">Un centro cultural de gran relevancia para el desarrollo artístico del municipio:</p>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+      <li>Ofrece conciertos, obras y eventos comunitarios</li>
+      <li>Cuenta con sala de teatro moderna y espacios de exposición</li>
+      <li>Fomenta el talento local y puertorriqueño</li>
+    </ul>
+    <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+      "¡Donde el arte cobra vida en el corazón del pueblo!"
+    </p>
+  `;
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "×";
+  closeBtn.style.position = "absolute";
+  closeBtn.style.top = "5px";
+  closeBtn.style.right = "10px";
+  closeBtn.style.background = "none";
+  closeBtn.style.border = "none";
+  closeBtn.style.color = "white";
+  closeBtn.style.fontSize = "24px";
+  closeBtn.style.cursor = "pointer";
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  panel.appendChild(closeBtn);
+  document.body.appendChild(panel);
+  return panel;
+};
+
+
+// CREAR PANEL DE INFORMACIÓN DE LA TAINA
+const createTAINAInfoPanel = () => {
+  const panel = document.createElement("div");
+  panel.id = "taina-info";
+  panel.style.position = "fixed";
+  panel.style.top = "20px";
+  panel.style.left = "20px";
+  panel.style.width = "300px";
+  panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+  panel.style.borderRadius = "15px";
+  panel.style.padding = "15px";
+  panel.style.color = "white";
+  panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+  panel.style.border = "4px solid white";
+  panel.style.boxShadow = "0 0 20px rgba(200, 100, 255, 0.5)";
+  panel.style.display = "none";
+  panel.style.zIndex = "2000";
+  panel.style.backdropFilter = "blur(5px)";
+
+  panel.innerHTML = `
+  <h2 style="margin-top: 0; text-align: center; color: salmon; text-shadow: 2px 2px 0 maroon;">🪶 Monumento de la Taína</h2>
+  <div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <img src="https://caguas.gov.pr/wp-content/uploads/2019/08/Portal-Monumento-a-la-Herencia-Indigena.jpg"
+         alt="Monumento de la Taína de Caguas" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+    <div>
+      <p style="margin: 5px 0; font-weight: bold;">Ubicación: <em>Entrada norte de Caguas, PR-1</em></p>
+      <p style="margin: 5px 0;">🗿 Tributo a los pueblos indígenas de Puerto Rico</p>
+    </div>
+  </div>
+  <p style="margin: 10px 0;">Este monumento conmemora la presencia y herencia taína en la isla:</p>
+  <ul style="margin: 10px 0; padding-left: 20px;">
+    <li>Obra de arte de gran escala y valor simbólico</li>
+    <li>Representa a una mujer taína portando símbolos culturales</li>
+    <li>Emblema de orgullo para Caguas y todo Puerto Rico</li>
+  </ul>
+  <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+    "Nuestra historia vive en cada piedra y en cada raíz 🌿"
+  </p>
+`;
+
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "×";
+  closeBtn.style.position = "absolute";
+  closeBtn.style.top = "5px";
+  closeBtn.style.right = "10px";
+  closeBtn.style.background = "none";
+  closeBtn.style.border = "none";
+  closeBtn.style.color = "white";
+  closeBtn.style.fontSize = "24px";
+  closeBtn.style.cursor = "pointer";
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  panel.appendChild(closeBtn);
+  document.body.appendChild(panel);
+  return panel;
+};
+
+
+// CREAR PANEL DE INFORMACIÓN DE LA ESTATUA JUNGLE GUARDIAN
+const createJungleGuardianInfoPanel = () => {
+  const panel = document.createElement("div");
+  panel.id = "guardian-info";
+  panel.style.position = "fixed";
+  panel.style.top = "20px";
+  panel.style.left = "20px";
+  panel.style.width = "300px";
+  panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+  panel.style.borderRadius = "15px";
+  panel.style.padding = "15px";
+  panel.style.color = "white";
+  panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+  panel.style.border = "4px solid white";
+  panel.style.boxShadow = "0 0 20px rgba(0, 200, 100, 0.5)";
+  panel.style.display = "none";
+  panel.style.zIndex = "2000";
+  panel.style.backdropFilter = "blur(5px)";
+
+  panel.innerHTML = `
+    <h2 style="margin-top: 0; text-align: center; color: lightgreen; text-shadow: 2px 2px 0 darkgreen;">🛡️ Jungle Guardian</h2>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1tH7xl2mXvasTPUVxjdjQufDQP08A5EP3du2WPFAdYQkbfinA4HWINt8FwGfhCp_uPf3RKSwdS24Wsacv44DEgR8_V_NeeKkzL1qSSyadPh_U0QwdDMY4um3CxrO92N-wndcYxVEj1RA/s1600/caguas+africana+2.jpg"
+           alt="Jungle Guardian" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+      <div>
+        <p style="margin: 5px 0; font-weight: bold;">Ubicación: <em>Jardín Botánico y Cultural de Caguas</em></p>
+        <p style="margin: 5px 0;">🧝‍♂️ Protector simbólico de la flora caribeña</p>
+      </div>
+    </div>
+    <p style="margin: 10px 0;">La estatua Jungle Guardian representa la conexión mística con la naturaleza:</p>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+      <li>Icono ecológico del Jardín Botánico de Caguas</li>
+      <li>Escultura inspirada en figuras fantásticas del bosque</li>
+      <li>Una invitación a proteger el medioambiente y sus especies</li>
+    </ul>
+    <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+      "Guardianes de la selva, protectores de la vida 🌿"
+    </p>
+  `;
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "×";
+  closeBtn.style.position = "absolute";
+  closeBtn.style.top = "5px";
+  closeBtn.style.right = "10px";
+  closeBtn.style.background = "none";
+  closeBtn.style.border = "none";
+  closeBtn.style.color = "white";
+  closeBtn.style.fontSize = "24px";
+  closeBtn.style.cursor = "pointer";
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  panel.appendChild(closeBtn);
+  document.body.appendChild(panel);
+  return panel;
+};
+
+
+
+
   // COMPONENTE PARA CONTROL DE ROTACIÓN
   AFRAME.registerComponent("model-rotation", {
     schema: {
@@ -637,6 +820,107 @@ if (alcalMarker && alcalEntity) {
     if (rotationControls.controls) rotationControls.controls.style.display = "none";
   });
 }
+
+
+// INICIALIZACIÓN PARA CENTRO DE BELLAS ARTES DE CAGUAS
+const bellasMarker = document.getElementById("marker-centr");
+const bellasEntity = document.getElementById("entity-centr");
+const bellasPanel = createCENTRInfoPanel();
+
+if (bellasMarker && bellasEntity) {
+  bellasMarker.addEventListener("markerFound", () => {
+    updateStatus(markerStatus, "🎯 Marcador Bellas Artes: Detectado", "success");
+    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+    if (bellasPanel) bellasPanel.style.display = "block";
+    bellasEntity.setAttribute("model-rotation", {
+      speed: 2.5,
+      autoRotate: true,
+    });
+    bellasEntity.setAttribute("float-animation", {
+      amplitude: 0.07,
+      speed: 1.8,
+    });
+
+    if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+  });
+
+  bellasMarker.addEventListener("markerLost", () => {
+    updateStatus(markerStatus, "👀 Marcador Bellas Artes: Buscando...", "warning");
+
+    if (bellasPanel) bellasPanel.style.display = "none";
+    bellasEntity.removeAttribute("float-animation");
+    if (rotationControls.controls) rotationControls.controls.style.display = "none";
+  });
+}
+
+
+// INICIALIZACIÓN PARA MONUMENTO DE LA TAÍNA DE CAGUAS
+const tainaMarker = document.getElementById("marker-india");
+const tainaEntity = document.getElementById("entity-india");
+const tainaPanel = createTAINAInfoPanel();
+
+if (tainaMarker && tainaEntity) {
+  tainaMarker.addEventListener("markerFound", () => {
+    updateStatus(markerStatus, "🎯 Marcador Taína: Detectado", "success");
+    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+    if (tainaPanel) tainaPanel.style.display = "block";
+    tainaEntity.setAttribute("model-rotation", {
+      speed: 2.5,
+      autoRotate: true,
+    });
+    tainaEntity.setAttribute("float-animation", {
+      amplitude: 0.07,
+      speed: 1.8,
+    });
+
+    if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+  });
+
+  tainaMarker.addEventListener("markerLost", () => {
+    updateStatus(markerStatus, "👀 Marcador Taína: Buscando...", "warning");
+
+    if (tainaPanel) tainaPanel.style.display = "none";
+    tainaEntity.removeAttribute("float-animation");
+    if (rotationControls.controls) rotationControls.controls.style.display = "none";
+  });
+}
+
+
+// INICIALIZACIÓN PARA ESTATUA JUNGLE GUARDIAN - JARDÍN BOTÁNICO DE CAGUAS
+const guardianMarker = document.getElementById("marker-jung");
+const guardianEntity = document.getElementById("entity-jung");
+const guardianPanel = createJungleGuardianInfoPanel();
+
+if (guardianMarker && guardianEntity) {
+  guardianMarker.addEventListener("markerFound", () => {
+    updateStatus(markerStatus, "🎯 Marcador Jungle Guardian: Detectado", "success");
+    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+    if (guardianPanel) guardianPanel.style.display = "block";
+    guardianEntity.setAttribute("model-rotation", {
+      speed: 2.5,
+      autoRotate: true,
+    });
+    guardianEntity.setAttribute("float-animation", {
+      amplitude: 0.07,
+      speed: 1.8,
+    });
+
+    if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+  });
+
+  guardianMarker.addEventListener("markerLost", () => {
+    updateStatus(markerStatus, "👀 Marcador Jungle Guardian: Buscando...", "warning");
+
+    if (guardianPanel) guardianPanel.style.display = "none";
+    guardianEntity.removeAttribute("float-animation");
+    if (rotationControls.controls) rotationControls.controls.style.display = "none";
+  });
+}
+
+
 
 
   // --- INICIALIZACIÓN PARA FLAMBOYÁN ---
