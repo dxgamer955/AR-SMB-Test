@@ -68,6 +68,9 @@
             <a-asset-item id="modelo-centr" src="models/CENTRO.glb"></a-asset-item>
             <a-asset-item id="modelo-india" src="models/INDIA.glb"></a-asset-item>
             <a-asset-item id="modelo-jung" src="models/jungle_gurdian.glb"></a-asset-item>
+            <a-asset-item id="modelo-pitirre" src="models/PITIRRE.glb"></a-asset-item>
+            <a-asset-item id="modelo-reloj" src="models/RELOJ.glb"></a-asset-item>
+            <a-asset-item id="modelo-willie" src="models/WILLIAM.glb"></a-asset-item>
         </a-assets>
         
         <!-- Marcador Mori -->
@@ -209,6 +212,57 @@
              shadow="cast: true; receive: true"
          ></a-entity>
      </a-marker>
+
+     <!-- Marcador Pitirre -->
+     <a-marker
+     type="pattern"
+     url="patterns/pattern-qr_piti.patt"
+     emitevents="true"
+     id="marker-pitirre"
+ >
+     <a-entity
+         gltf-model="#modelo-pitirre"
+         scale="0.1 0.1 0.1"
+         position="0 0 0"
+         rotation="0 0 0"
+         id="entity-pitirre"
+         shadow="cast: true; receive: true"
+     ></a-entity>
+ </a-marker>
+
+   <!-- Marcador Reloj -->
+   <a-marker
+   type="pattern"
+   url="patterns/pattern-qr_reloj.patt"
+   emitevents="true"
+   id="marker-reloj"
+>
+   <a-entity
+       gltf-model="#modelo-reloj"
+       scale="0.1 0.1 0.1"
+       position="0 0 0"
+       rotation="0 0 0"
+       id="entity-reloj"
+       shadow="cast: true; receive: true"
+   ></a-entity>
+</a-marker>
+
+   <!-- Marcador William -->
+   <a-marker
+   type="pattern"
+   url="patterns/pattern-qr_william.patt"
+   emitevents="true"
+   id="marker-willie"
+>
+   <a-entity
+       gltf-model="#modelo-willie"
+       scale="0.1 0.1 0.1"
+       position="0 0 0"
+       rotation="0 0 0"
+       id="entity-willie"
+       shadow="cast: true; receive: true"
+   ></a-entity>
+</a-marker>
 
         <a-entity camera></a-entity>
     </a-scene>

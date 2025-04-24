@@ -557,6 +557,186 @@ const createJungleGuardianInfoPanel = () => {
 };
 
 
+// CREAR PANEL DE INFORMACIÓN DEL PITIRRE
+const createPitirreInfoPanel = () => {
+  const panel = document.createElement("div");
+  panel.id = "pitirre-info";
+  panel.style.position = "fixed";
+  panel.style.top = "20px";
+  panel.style.left = "20px";
+  panel.style.width = "300px";
+  panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+  panel.style.borderRadius = "15px";
+  panel.style.padding = "15px";
+  panel.style.color = "white";
+  panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+  panel.style.border = "4px solid white";
+  panel.style.boxShadow = "0 0 20px rgba(100, 100, 255, 0.5)";
+  panel.style.display = "none";
+  panel.style.zIndex = "2000";
+  panel.style.backdropFilter = "blur(5px)";
+
+  panel.innerHTML = `
+    <h2 style="margin-top: 0; text-align: center; color: skyblue; text-shadow: 2px 2px 0 navy;">🐦 El Pitirre</h2>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Puerto_Rican_Gray_Kingbird.jpg/1200px-Puerto_Rican_Gray_Kingbird.jpg"
+           alt="Pitirre" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+      <div>
+        <p style="margin: 5px 0; font-weight: bold;">Nombre científico: <em>Tyrannus dominicensis</em></p>
+        <p style="margin: 5px 0;">⚔️ Defensor audaz del cielo puertorriqueño</p>
+      </div>
+    </div>
+    <p style="margin: 10px 0;">El pitirre es conocido por su valentía al defender su territorio, incluso de aves más grandes:</p>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+      <li>Común en zonas abiertas y campos de todo Puerto Rico</li>
+      <li>Famoso por su vuelo agresivo contra predadores</li>
+      <li>Símbolo de coraje y resistencia en la cultura popular</li>
+    </ul>
+    <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+      "¡Chirrí chirrí! ¡Aquí mando yo!"
+    </p>
+  `;
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "×";
+  closeBtn.style.position = "absolute";
+  closeBtn.style.top = "5px";
+  closeBtn.style.right = "10px";
+  closeBtn.style.background = "none";
+  closeBtn.style.border = "none";
+  closeBtn.style.color = "white";
+  closeBtn.style.fontSize = "24px";
+  closeBtn.style.cursor = "pointer";
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  panel.appendChild(closeBtn);
+  document.body.appendChild(panel);
+  return panel;
+};
+
+
+// CREAR PANEL DE INFORMACIÓN DEL RELOJ FLORAL DE CAGUAS
+const createRelojFloralInfoPanel = () => {
+  const panel = document.createElement("div");
+  panel.id = "reloj-info";
+  panel.style.position = "fixed";
+  panel.style.top = "20px";
+  panel.style.left = "20px";
+  panel.style.width = "300px";
+  panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+  panel.style.borderRadius = "15px";
+  panel.style.padding = "15px";
+  panel.style.color = "white";
+  panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+  panel.style.border = "4px solid white";
+  panel.style.boxShadow = "0 0 20px rgba(255, 150, 0, 0.5)";
+  panel.style.display = "none";
+  panel.style.zIndex = "2000";
+  panel.style.backdropFilter = "blur(5px)";
+
+  panel.innerHTML = `
+    <h2 style="margin-top: 0; text-align: center; color: gold; text-shadow: 2px 2px 0 darkorange;">🌸 Reloj Floral de Caguas</h2>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirYL32abYT5MkCq__4w1_jIJuYivp_BBEWP7qBgj3xMe_LBvqtdCp7aDW67MCWHnE0Xf6q4Gr2H8dCKxDkNbOfO8WR0lwQPi4PfRxd6SlXy_nhENbsdShCiwxrpvjzeeIvvDi7_F0GFD0/w1200-h630-p-k-no-nu/caguas+reloj.jpg"
+           alt="Reloj Floral de Caguas" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+      <div>
+        <p style="margin: 5px 0; font-weight: bold;">Ubicación: <em>Plaza Santiago R. Palmer</em></p>
+        <p style="margin: 5px 0;">⏰ Monumento botánico en el corazón de la ciudad</p>
+      </div>
+    </div>
+    <p style="margin: 10px 0;">El Reloj Floral es una atracción turística emblemática de Caguas:</p>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+      <li>Funciona como un reloj real y está rodeado de jardines florales</li>
+      <li>Fue inaugurado en 2004 como parte del embellecimiento urbano</li>
+      <li>Es uno de los pocos relojes florales mecánicos en el Caribe</li>
+    </ul>
+    <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+      "Un ícono vivo que marca el ritmo de la ciudad 🌼"
+    </p>
+  `;
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "×";
+  closeBtn.style.position = "absolute";
+  closeBtn.style.top = "5px";
+  closeBtn.style.right = "10px";
+  closeBtn.style.background = "none";
+  closeBtn.style.border = "none";
+  closeBtn.style.color = "white";
+  closeBtn.style.fontSize = "24px";
+  closeBtn.style.cursor = "pointer";
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  panel.appendChild(closeBtn);
+  document.body.appendChild(panel);
+  return panel;
+};
+
+
+// CREAR PANEL DE INFORMACIÓN DE LA ESCULTURA DE WILLIAM MIRANDA MARÍN
+const createWillieInfoPanel = () => {
+  const panel = document.createElement("div");
+  panel.id = "willie-info";
+  panel.style.position = "fixed";
+  panel.style.top = "20px";
+  panel.style.left = "20px";
+  panel.style.width = "300px";
+  panel.style.backgroundColor = "rgba(0, 0, 0, 0.85)";
+  panel.style.borderRadius = "15px";
+  panel.style.padding = "15px";
+  panel.style.color = "white";
+  panel.style.fontFamily = '"Super Mario", Arial, sans-serif';
+  panel.style.border = "4px solid white";
+  panel.style.boxShadow = "0 0 20px rgba(100, 150, 255, 0.5)";
+  panel.style.display = "none";
+  panel.style.zIndex = "2000";
+  panel.style.backdropFilter = "blur(5px)";
+
+  panel.innerHTML = `
+    <h2 style="margin-top: 0; text-align: center; color: lightsteelblue; text-shadow: 2px 2px 0 navy;">🧑‍💼 William Miranda Marín</h2>
+    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+      <img src="https://images.findagrave.com/photos/2010/154/53228410_127567210214.jpg?size=photos250"
+           alt="William Miranda Marín" style="width: 50px; height: 50px; margin-right: 10px; border-radius: 8px;">
+      <div>
+        <p style="margin: 5px 0; font-weight: bold;">Alcalde de Caguas (1997–2010)</p>
+        <p style="margin: 5px 0;">🕊 Visionario, líder y defensor del desarrollo humano</p>
+      </div>
+    </div>
+    <p style="margin: 10px 0;">Esta escultura honra a una de las figuras más queridas y transformadoras de Caguas:</p>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+      <li>Impulsó la autogestión comunitaria y la educación</li>
+      <li>Fundó el C3TEC y revitalizó la ciudad criolla</li>
+      <li>Recordado por su humanidad y legado perdurable</li>
+    </ul>
+    <p style="text-align: center; font-style: italic; margin-bottom: 0;">
+      "¡Adelante, hacia el desarrollo pleno del ser humano!"
+    </p>
+  `;
+
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "×";
+  closeBtn.style.position = "absolute";
+  closeBtn.style.top = "5px";
+  closeBtn.style.right = "10px";
+  closeBtn.style.background = "none";
+  closeBtn.style.border = "none";
+  closeBtn.style.color = "white";
+  closeBtn.style.fontSize = "24px";
+  closeBtn.style.cursor = "pointer";
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  panel.appendChild(closeBtn);
+  document.body.appendChild(panel);
+  return panel;
+};
+
+
 
 
   // COMPONENTE PARA CONTROL DE ROTACIÓN
@@ -921,6 +1101,104 @@ if (guardianMarker && guardianEntity) {
 }
 
 
+// INICIALIZACIÓN PARA EL PITIRRE
+const pitirreMarker = document.getElementById("marker-pitirre");
+const pitirreEntity = document.getElementById("entity-pitirre");
+const pitirrePanel = createPitirreInfoPanel();
+
+if (pitirreMarker && pitirreEntity) {
+  pitirreMarker.addEventListener("markerFound", () => {
+    updateStatus(markerStatus, "🎯 Marcador Pitirre: Detectado", "success");
+    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+    if (pitirrePanel) pitirrePanel.style.display = "block";
+    pitirreEntity.setAttribute("model-rotation", {
+      speed: 2.5,
+      autoRotate: true,
+    });
+    pitirreEntity.setAttribute("float-animation", {
+      amplitude: 0.07,
+      speed: 1.8,
+    });
+
+    if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+  });
+
+  pitirreMarker.addEventListener("markerLost", () => {
+    updateStatus(markerStatus, "👀 Marcador Pitirre: Buscando...", "warning");
+
+    if (pitirrePanel) pitirrePanel.style.display = "none";
+    pitirreEntity.removeAttribute("float-animation");
+    if (rotationControls.controls) rotationControls.controls.style.display = "none";
+  });
+}
+
+// INICIALIZACIÓN PARA EL RELOJ FLORAL DE CAGUAS
+const relojMarker = document.getElementById("marker-reloj");
+const relojEntity = document.getElementById("entity-reloj");
+const relojPanel = createRelojFloralInfoPanel();
+
+if (relojMarker && relojEntity) {
+  relojMarker.addEventListener("markerFound", () => {
+    updateStatus(markerStatus, "🎯 Marcador Reloj Floral: Detectado", "success");
+    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+    if (relojPanel) relojPanel.style.display = "block";
+    relojEntity.setAttribute("model-rotation", {
+      speed: 2.5,
+      autoRotate: true,
+    });
+    relojEntity.setAttribute("float-animation", {
+      amplitude: 0.07,
+      speed: 1.8,
+    });
+
+    if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+  });
+
+  relojMarker.addEventListener("markerLost", () => {
+    updateStatus(markerStatus, "👀 Marcador Reloj Floral: Buscando...", "warning");
+
+    if (relojPanel) relojPanel.style.display = "none";
+    relojEntity.removeAttribute("float-animation");
+    if (rotationControls.controls) rotationControls.controls.style.display = "none";
+  });
+}
+
+
+// INICIALIZACIÓN PARA ESCULTURA DE WILLIAM MIRANDA MARÍN
+const willieMarker = document.getElementById("marker-willie");
+const willieEntity = document.getElementById("entity-willie");
+const williePanel = createWillieInfoPanel();
+
+if (willieMarker && willieEntity) {
+  willieMarker.addEventListener("markerFound", () => {
+    updateStatus(markerStatus, "🎯 Marcador William Miranda Marín: Detectado", "success");
+    updateStatus(cameraStatus, "📷 Cámara: Activada", "info");
+
+    if (williePanel) williePanel.style.display = "block";
+    willieEntity.setAttribute("model-rotation", {
+      speed: 2.5,
+      autoRotate: true,
+    });
+    willieEntity.setAttribute("float-animation", {
+      amplitude: 0.07,
+      speed: 1.8,
+    });
+
+    if (rotationControls.controls) rotationControls.controls.style.display = "flex";
+  });
+
+  willieMarker.addEventListener("markerLost", () => {
+    updateStatus(markerStatus, "👀 Marcador William Miranda Marín: Buscando...", "warning");
+
+    if (williePanel) williePanel.style.display = "none";
+    willieEntity.removeAttribute("float-animation");
+    if (rotationControls.controls) rotationControls.controls.style.display = "none";
+  });
+}
+
+// El resto del código permanece sin cambios.
 
 
   // --- INICIALIZACIÓN PARA FLAMBOYÁN ---
