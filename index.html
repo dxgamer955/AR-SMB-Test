@@ -71,6 +71,7 @@
             <a-asset-item id="modelo-pitirre" src="models/PITIRRE.glb"></a-asset-item>
             <a-asset-item id="modelo-reloj" src="models/RELOJ.glb"></a-asset-item>
             <a-asset-item id="modelo-willie" src="models/WILLIAM.glb"></a-asset-item>
+            <a-asset-item id="modelo-uagm" src="models/UAGM.glb"></a-asset-item>
         </a-assets>
         
         <!-- Marcador Mori -->
@@ -262,6 +263,23 @@
        id="entity-willie"
        shadow="cast: true; receive: true"
    ></a-entity>
+</a-marker>
+
+ <!-- Marcador UAGM -->
+ <a-marker
+ type="pattern"
+ url="patterns/pattern-qr_uagm.patt"
+ emitevents="true"
+ id="marker-uagm"
+>
+ <a-entity
+     gltf-model="#modelo-uagm"
+     scale="0.1 0.1 0.1"
+     position="0 0 0"
+     rotation="0 0 0"
+     id="entity-uagm"
+     shadow="cast: true; receive: true"
+ ></a-entity>
 </a-marker>
 
         <a-entity camera></a-entity>
